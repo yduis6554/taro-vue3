@@ -20,8 +20,9 @@ App.use(Button)
 App.use(SearchBar)
 App.use(Cell)
 App.use(Tabbar).use(TabbarItem)
-App.use(router)
+
 App.use(store)
+App.use(router)
 
 const auth = useStore('auth')
 const app = useStore('app')

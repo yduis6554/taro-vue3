@@ -1,12 +1,10 @@
 import { createWebHistory, createRouter } from "vue-router";
-import Home from "@/pages/find/index";
-import About from "@/pages/my/index";
-
+import config from "@/config/index";
 const routes = [
     {
         path: "/",
         name: "Home",
-        component: Home,
+        component: () => import('@/pages/home/index'),
         children: [
             {
                 name: 'Login',
@@ -18,12 +16,18 @@ const routes = [
     {
         path: "/about",
         name: "About",
-        component: About,
+        component: () => import('@/pages/user/index'),
+
+    },
+    {
+        path: "/user",
+        name: "user",
+        component: () => import('@/components/test.vue')
     },
 ];
 
 const router = createRouter({
-    history: createWebHistory(),
+    //history: createWebHistory(config.baseUrl.dev),
     routes,
 });
 
