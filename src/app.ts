@@ -3,13 +3,15 @@ import Taro from '@tarojs/taro'
 
 import { store, useStore } from '@/stores'
 
-import { Icon, Avatar, Button, SearchBar, Cell } from '@nutui/nutui-taro'
+import { Icon, Avatar, Button, SearchBar, Cell, Tabbar, TabbarItem } from '@nutui/nutui-taro'
 
 import '@nutui/nutui-taro/dist/style.css'
 import './app.scss'
 
+import router from '@/router/index'
+
 const App = createApp({
-  onShow() {}
+  onShow() { }
   // 入口组件不需要实现 render 方法，即使实现了也会被 taro 所覆盖
 })
 App.use(Icon)
@@ -17,7 +19,8 @@ App.use(Avatar)
 App.use(Button)
 App.use(SearchBar)
 App.use(Cell)
-
+App.use(Tabbar).use(TabbarItem)
+App.use(router)
 App.use(store)
 
 const auth = useStore('auth')

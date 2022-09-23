@@ -5,6 +5,7 @@
   <main v-else>
     <nut-button type="primary" @click="handleLogin">微信一键登录</nut-button>
   </main>
+  <router-view />
 </template>
 
 <script lang="ts" setup>
