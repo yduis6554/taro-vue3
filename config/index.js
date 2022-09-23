@@ -26,6 +26,7 @@ const config = {
     options: {}
   },
   framework: 'vue3',
+  compiler: 'webpack5',
   mini: {
     postcss: {
       pxtransform: {
@@ -66,7 +67,7 @@ const config = {
   }
 }
 
-module.exports = function(merge) {
+module.exports = function (merge) {
   if (process.env.NODE_ENV === 'development') {
     return merge({}, config, require('./dev'))
   }
