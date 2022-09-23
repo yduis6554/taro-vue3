@@ -1,5 +1,10 @@
 export default {
-  pages: ['pages/home/index', 'pages/user/index', 'pages/monitor/index'],
+  pages: [
+    'pages/order/index',
+    'pages/home/index',
+
+    'pages/news/index',
+    'pages/user/index'],
   window: {
     backgroundColor: '#fff',
     backgroundTextStyle: 'light',
@@ -21,30 +26,36 @@ export default {
       pages: ['detail/index']
     }
   ],
-  // tabBar: {
-  //   color: '#7A7E83',
-  //   selectedColor: '#d81e06',
-  //   borderStyle: 'black',
-  //   backgroundColor: '#fff',
-  //   list: [
-  //     {
-  //       pagePath: 'pages/create/index',
-  //       iconPath: 'assets/icons/user_default.png',
-  //       selectedIconPath: 'assets/icons/user_selected.png',
-  //       text: '创建'
-  //     },
-  //     {
-  //       pagePath: 'pages/find/index',
-  //       iconPath: 'assets/icons/user_default.png',
-  //       selectedIconPath: 'assets/icons/user_selected.png',
-  //       text: '发现'
-  //     },
-  //     {
-  //       pagePath: 'pages/my/index',
-  //       iconPath: 'assets/icons/user_default.png',
-  //       selectedIconPath: 'assets/icons/user_selected.png',
-  //       text: '我的'
-  //     }
-  //   ]
-  // }
+  tabBar: {
+    color: '#7A7E83',
+    selectedColor: '#d81e06',
+    borderStyle: 'black',
+    backgroundColor: '#fff',
+    list: [
+      {
+        pagePath: 'pages/home/index',
+        iconPath: 'assets/icons/user_default.png',
+        selectedIconPath: 'assets/icons/user_selected.png',
+        text: '首页'
+      },
+      {
+        pagePath: 'pages/order/index',
+        iconPath: 'assets/icons/user_default.png',
+        selectedIconPath: 'assets/icons/user_selected.png',
+        text: '定单'
+      },
+      {
+        pagePath: 'pages/news/index',
+        iconPath: 'assets/icons/user_default.png',
+        selectedIconPath: 'assets/icons/user_selected.png',
+        text: '消息'
+      },
+      {
+        pagePath: 'pages/user/index',
+        iconPath: 'assets/icons/user_default.png',
+        selectedIconPath: 'assets/icons/user_selected.png',
+        text: '我的'
+      }
+    ]
+  }
 }
