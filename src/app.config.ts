@@ -1,16 +1,16 @@
 export default {
   pages: [
-    'pages/order/index',
     'pages/home/index',
-
+    'pages/order/index',
     'pages/news/index',
     'pages/user/index'],
   window: {
-    backgroundColor: '#fff',
-    backgroundTextStyle: 'light',
-    navigationBarBackgroundColor: '#fff',
-    navigationBarTitleText: 'WeChat',
-    navigationBarTextStyle: 'black'
+    // backgroundColor: '#fff',
+    // backgroundTextStyle: 'light',
+    // navigationBarBackgroundColor: '#fff',
+    // navigationBarTitleText: 'WeChat',
+    // navigationBarTextStyle: 'black',
+    navigationStyle: 'custom'
   },
   subpackages: [
     {

@@ -5,6 +5,7 @@ import { store, useStore } from '@/stores'
 import { Icon, Avatar, Button, SearchBar, Cell } from '@nutui/nutui-taro'
 import { Tabbar, TabbarItem } from '@nutui/nutui-taro';
 import { Swiper, SwiperItem } from '@nutui/nutui-taro';
+
 //import hub from "@/services/hubs"
 
 import '@nutui/nutui-taro/dist/style.css'
@@ -34,8 +35,14 @@ App.use(SearchBar)
 App.use(Tabbar)
 App.use(Cell).use(TabbarItem)
 App.use(Swiper).use(SwiperItem)
+
 App.use(store)
 
+
+Taro.getSystemInfo({})
+  .then(res => {
+    Taro.$navBarMarginTop = res.statusBarHeight || 0
+  })
 
 const auth = useStore('auth')
 const app = useStore('app')
