@@ -5,12 +5,11 @@ export default {
     'pages/news/index',
     'pages/user/index'],
   window: {
-    // backgroundColor: '#fff',
-    // backgroundTextStyle: 'light',
-    // navigationBarBackgroundColor: '#fff',
-    // navigationBarTitleText: 'WeChat',
-    // navigationBarTextStyle: 'black',
-    navigationStyle: 'custom'
+    backgroundColor: '#fff',
+    backgroundTextStyle: 'light',
+    navigationBarBackgroundColor: '#fff',
+    navigationBarTitleText: 'WeChat',
+    navigationBarTextStyle: 'black',
   },
   subpackages: [
     {

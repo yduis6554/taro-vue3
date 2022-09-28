@@ -7,6 +7,7 @@ import './index.scss';
 
 export default {
   name: 'Navbar',
+
   props: {
     extClass: { type: String, default: '' },
     background: { type: String, default: 'rgba(255,255,255,1)' },
@@ -17,7 +18,7 @@ export default {
     back: { type: Boolean, default: false },
     home: { type: Boolean, default: false },
     iconTheme: { type: String, default: 'black' },
-    delta: { type: Number, default: 1 }
+    delta: { type: Number, default: 1 },
   },
   setup(props) {
     let globalSystemInfo = getSystemInfo();
@@ -152,9 +153,26 @@ export default {
       }
     }
 
+    function handleBackClick() {
+      console.log(this.onBack);
+
+      if (_isFunction(this.onBack)) {
+        this.onBack();
+      } else {
+        const pages = Taro.getCurrentPages();
+        if (pages.length >= 2) {
+          Taro.navigateBack({
+            delta: this.delta
+          });
+        }
+      }
+    };
+
+
     return {
       globalSystemInfo,
-      configStyle
+      configStyle,
+      handleBackClick
     }
 
   },
@@ -165,21 +183,10 @@ export default {
   created() {
 
   },
+  computed() {
 
+  },
   render() {
-
-    // const { statusBarHeight, navBarHeight, capsulePosition, navBarExtendHeight, ios, windowWidth } = this.globalSystemInfo;
-    // let rightDistance = windowWidth - capsulePosition.right; //胶囊按钮右侧到屏幕右侧的边距
-    // let leftWidth = windowWidth - capsulePosition.left; //胶囊按钮左侧到屏幕右侧的边距
-    // let navigationbarinnerStyle = [
-
-    //   `background:${this.background}`,
-    //   `height:${navBarHeight + navBarExtendHeight}px`,
-    //   `padding-top:${statusBarHeight}px`,
-    //   `padding-right:${leftWidth}px`,
-    //   `padding-bottom:${navBarExtendHeight}px`
-    // ].join(';');
-    // 将状态栏的区域空余出来
     const {
       navigationbarinnerStyle,
       navBarLeft,
@@ -189,6 +196,19 @@ export default {
       ios,
       rightDistance
     } = this.configStyle;
+
+
+    function handleGoHomeClick() {
+      console.log("handleGoHomeClick");
+      if (_isFunction(this.onHome)) {
+        this.onHome();
+      }
+    };
+    function handleSearchClick() {
+      if (_isFunction(this.onSearch)) {
+        this.onSearch();
+      }
+    };
 
     let nav_bar__center = null;
     if (this.title) {
@@ -226,25 +246,25 @@ export default {
           <View className='lxy-nav-bar__left' style={navBarLeft}>
             {this.back && !this.home && (
               <View
-                onClick={this.handleBackClick.bind(this)}
-                className={`lxy-nav-bar__button lxy-nav-bar__btn_goback ${iconTheme}`}
+                onClick={this.handleBackClick}
+                className={`lxy-nav-bar__button lxy-nav-bar__btn_goback ${this.iconTheme}`}
               />
             )}
             {!this.back && this.home && (
               <View
-                onClick={this.handleGoHomeClick.bind(this)}
-                className={`lxy-nav-bar__button lxy-nav-bar__btn_gohome ${iconTheme}`}
+                onClick={handleGoHomeClick}
+                className={`lxy-nav-bar__button lxy-nav-bar__btn_gohome ${this.iconTheme}`}
               />
             )}
             {this.back && this.home && (
               <View className={`lxy-nav-bar__buttons ${ios ? 'ios' : 'android'}`}>
                 <View
-                  onClick={this.handleBackClick.bind(this)}
-                  className={`lxy-nav-bar__button lxy-nav-bar__btn_goback ${iconTheme}`}
+                  onClick={this.handleBackClick}
+                  className={`lxy-nav-bar__button lxy-nav-bar__btn_goback ${this.iconTheme}`}
                 />
                 <View
-                  onClick={this.handleGoHomeClick.bind(this)}
-                  className={`lxy-nav-bar__button lxy-nav-bar__btn_gohome ${iconTheme}}`}
+                  onClick={handleGoHomeClick}
+                  className={`lxy-nav-bar__button lxy-nav-bar__btn_gohome ${this.iconTheme}}`}
                 />
               </View>
             )}
